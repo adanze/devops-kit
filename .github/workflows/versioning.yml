@@ -26,6 +26,7 @@ jobs:
         uses: actions/checkout@v6.0.2
         with:
           repository: adanze/devops-kit
+          ref: patch/versioning
           path: .devops-config
 
       - name: Install GitVersion
