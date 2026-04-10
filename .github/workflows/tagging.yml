@@ -1,0 +1,28 @@
+name: Git Tagging
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        description: Version to tag (e.g. 1.2.3) — without the "v" prefix
+        type: string
+        required: true
+
+jobs:
+  tagging:
+    name: Tagging
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Create and Push Tag
+        run: |
+          git tag "v${{ inputs.version }}"
+          git push origin "v${{ inputs.version }}"
