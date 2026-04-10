@@ -26,3 +26,12 @@ jobs:
         run: |
           git tag "v${{ inputs.version }}"
           git push origin "v${{ inputs.version }}"
+
+      - name: Tag Summary
+        run: |
+          echo "## Git Version" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Tag Details | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
+          echo "| Tag | \`v${{ inputs.version }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Commit | \`${{ github.sha }}\` |" >> $GITHUB_STEP_SUMMARY

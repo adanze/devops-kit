@@ -41,12 +41,12 @@ jobs:
 
       - name: Version Summary
         run: |
-          echo "## Versioning" >> $GITHUB_STEP_SUMMARY
+          echo "## Semantic Versioning" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| Key | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "| Version Format | Value |" >> $GITHUB_STEP_SUMMARY
           echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
+          echo "| MajorMinorPatch | \`${{ steps.gitversion.outputs.majorMinorPatch }}\` |" >> $GITHUB_STEP_SUMMARY
           echo "| SemVer | \`${{ steps.gitversion.outputs.semVer }}\` |" >> $GITHUB_STEP_SUMMARY
-          echo "| Version | \`${{ steps.gitversion.outputs.majorMinorPatch }}\` |" >> $GITHUB_STEP_SUMMARY
 
     outputs:
       version: ${{ steps.gitversion.outputs.majorMinorPatch }}
