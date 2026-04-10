@@ -7,13 +7,14 @@ on:
       - "feature/**"
       - "patch/**"
       - "hotfix/**"
+      - "dependabot/**"
   pull_request:
     branches:
       - main
 
 jobs:
   versioning:
-    name: SemVer
+    name: Semantic Versioning
     uses: ./.github/workflows/versioning.yml
 
   tagging:

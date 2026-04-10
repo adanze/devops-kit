@@ -5,7 +5,7 @@ tag-prefix: "v"
 commit-message-incrementing: Enabled
 major-version-bump-message: '(?i)\+semver:\s?breaking'
 minor-version-bump-message: "(?i)merge.*feature/"
-patch-version-bump-message: "(?i)merge.*(patch|hotfix|dependabot)/"
+patch-version-bump-message: "(?i)merge.*(patch|hotfix|bugfix|dependabot)/"
 no-bump-message: '(?i)\+semver:\s?(none|skip)'
 
 branches:
@@ -43,6 +43,13 @@ branches:
     increment: Patch
     label: alpha
     source-branches: ["main"]
+    track-merge-message: false
+
+  bugfix:
+    regex: ^bugfix/.+
+    increment: Patch
+    label: alpha
+    source-branches: ["develop", "main"]
     track-merge-message: false
 
   dependabot:
