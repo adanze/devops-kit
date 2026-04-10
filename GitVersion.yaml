@@ -1,0 +1,56 @@
+mode: ContinuousDelivery
+
+tag-prefix: "v"
+
+commit-message-incrementing: Enabled
+major-version-bump-message: '(?i)\+semver:\s?breaking'
+minor-version-bump-message: "(?i)merge.*feature/"
+patch-version-bump-message: "(?i)merge.*(patch|hotfix|dependabot)/"
+no-bump-message: '(?i)\+semver:\s?(none|skip)'
+
+branches:
+  main:
+    regex: ^main$
+    increment: None
+    label: ""
+    source-branches: []
+    is-main-branch: true
+    track-merge-message: true
+
+  develop:
+    regex: ^develop$
+    increment: None
+    label: "beta"
+    source-branches: ["main"]
+    track-merge-message: true
+
+  feature:
+    regex: ^feature/.+
+    increment: Minor
+    label: alpha
+    source-branches: ["develop", "main"]
+    track-merge-message: false
+
+  patch:
+    regex: ^patch/.+
+    increment: Patch
+    label: alpha
+    source-branches: ["develop", "main"]
+    track-merge-message: false
+
+  hotfix:
+    regex: ^hotfix/.+
+    increment: Patch
+    label: alpha
+    source-branches: ["main"]
+    track-merge-message: false
+
+  dependabot:
+    regex: ^dependabot/.+
+    increment: Patch
+    label: alpha
+    source-branches: ["develop", "main"]
+    track-merge-message: false
+
+ignore:
+  sha: []
