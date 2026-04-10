@@ -1,0 +1,27 @@
+name: DevOps Kit CI
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/**"
+      - "patch/**"
+      - "hotfix/**"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  versioning:
+    name: SemVer
+    uses: ./.github/workflows/versioning.yml
+
+  tagging:
+    name: Git Tagging
+    needs: versioning
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/tagging.yml
+    permissions:
+      contents: write
+    with:
+      version: ${{ needs.versioning.outputs.version }}
