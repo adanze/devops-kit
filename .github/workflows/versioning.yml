@@ -12,7 +12,7 @@ on:
 
 jobs:
   versioning:
-    name: SemVer
+    name: Determine Version
     runs-on: ubuntu-latest
 
     steps:
