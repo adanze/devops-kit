@@ -14,11 +14,11 @@ on:
 
 jobs:
   versioning:
-    name: SemVer
+    name: Semantic Versioning
     uses: ./.github/workflows/semver-create.yml
 
   tagging:
-    name: Git SemVer
+    name: Git Tagging
     needs: versioning
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     uses: ./.github/workflows/semver-tag.yml
