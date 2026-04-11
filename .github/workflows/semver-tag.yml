@@ -1,4 +1,4 @@
-name: Git Version Tagging
+name: Semantic Versioning - Git Tagging
 
 on:
   workflow_call:

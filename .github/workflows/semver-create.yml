@@ -1,4 +1,4 @@
-name: Semantic Versioning
+name: Semantic Versioning - GitVersion Calculation 
 
 on:
   workflow_call:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   versioning:
-    name: Create Version
+    name: Determine Version
     runs-on: ubuntu-latest
 
     steps:
