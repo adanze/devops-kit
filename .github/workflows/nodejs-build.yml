@@ -1,4 +1,4 @@
-name: Node.js Build & Test
+name: Node.js - Build and Test
 
 on:
   workflow_call:
@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    name: Build & Test
+    name: Node.js Build & Test
     runs-on: ubuntu-latest
 
     steps:
