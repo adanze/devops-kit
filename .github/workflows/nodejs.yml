@@ -1,0 +1,39 @@
+name: Node.js Build & Test
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        description: Directory containing the Node.js project
+        type: string
+        required: true
+      test-args:
+        description: Extra arguments to pass to npm test (e.g. --no-watch, --run)
+        type: string
+        default: ""
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6.3.0
+        with:
+          node-version: latest
+
+      - name: Install Dependencies
+        run: npm install
+        working-directory: ${{ inputs.working-directory }}
+
+      - name: Run Tests
+        run: npm test -- ${{ inputs.test-args }}
+        working-directory: ${{ inputs.working-directory }}
+
+      - name: Build
+        run: npm run build
+        working-directory: ${{ inputs.working-directory }}
