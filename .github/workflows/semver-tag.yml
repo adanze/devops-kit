@@ -1,10 +1,10 @@
-name: Git Tagging
+name: Git Version Tagging
 
 on:
   workflow_call:
     inputs:
       version:
-        description: Version to tag (e.g. 1.2.3) — without the "v" prefix
+        description: Version to tag (e.g. 1.2.3)
         type: string
         required: true
 

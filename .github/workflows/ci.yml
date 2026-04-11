@@ -15,13 +15,13 @@ on:
 jobs:
   versioning:
     name: Semantic Versioning
-    uses: ./.github/workflows/versioning.yml
+    uses: ./.github/workflows/semver-create.yml
 
   tagging:
     name: Git Tagging
     needs: versioning
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    uses: ./.github/workflows/tagging.yml
+    uses: ./.github/workflows/semver-tag.yml
     permissions:
       contents: write
     with:
