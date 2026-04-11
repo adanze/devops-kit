@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    name: Node.js Build & Test
+    name: Build & Test
     runs-on: ubuntu-latest
 
     steps:
