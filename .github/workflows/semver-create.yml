@@ -1,4 +1,4 @@
-name: Semantic Versioning
+name: Semantic Versioning - GitVersion Calculation 
 
 on:
   workflow_call:

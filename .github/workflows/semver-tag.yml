@@ -1,16 +1,16 @@
-name: Git Tagging
+name: Semantic Versioning - Git Tagging
 
 on:
   workflow_call:
     inputs:
       version:
-        description: Version to tag (e.g. 1.2.3) — without the "v" prefix
+        description: Version to tag (e.g. 1.2.3)
         type: string
         required: true
 
 jobs:
   tagging:
-    name: Create Version Tag
+    name: Tag Version
     runs-on: ubuntu-latest
     permissions:
       contents: write
