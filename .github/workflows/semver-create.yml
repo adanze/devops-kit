@@ -12,7 +12,7 @@ on:
 
 jobs:
   versioning:
-    name: Determine Version
+    name: Create Version
     runs-on: ubuntu-latest
 
     steps:

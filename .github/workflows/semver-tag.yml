@@ -10,7 +10,7 @@ on:
 
 jobs:
   tagging:
-    name: Create Version Tag
+    name: Tag Version
     runs-on: ubuntu-latest
     permissions:
       contents: write
